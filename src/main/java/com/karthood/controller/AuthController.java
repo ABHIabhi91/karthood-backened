@@ -41,10 +41,10 @@ public class AuthController {
         user.setPassword(passwordEncoder.encode(request.password()));
         user.setTower(request.tower());
         user.setFlatNumber(request.flatNumber());
-
+user.setRole(request.role());
         userRepository.save(user);
 
-        String token = jwtUtil.generateToken(user.getEmail());
+        String token = jwtUtil.generateToken(user.getEmail(), user.getRole());
         return ResponseEntity.ok(new AuthResponse(token, user));
     }
 
@@ -53,10 +53,11 @@ public class AuthController {
         Optional<User> userOpt = userRepository.findByEmail(request.email());
         if (userOpt.isEmpty() || !passwordEncoder.matches(request.password(), userOpt.get().getPassword())) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
-        }
-
-        String token = jwtUtil.generateToken(request.email());
-        return ResponseEntity.ok(new AuthResponse(token, userOpt.get()));
+        } else if (userOpt.get().getRole().equalsIgnoreCase("BUYER")) {
+            String token = jwtUtil.generateToken(request.email(), request.role());
+            return ResponseEntity.ok(new AuthResponse(token, userOpt.get()));
+        } else
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Only Buyer role should login");
     }
 }
 

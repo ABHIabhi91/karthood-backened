@@ -17,4 +17,5 @@ public class User {
     private String phone;
     private String tower;
     private String flatNumber;
+    private String role;
 }
