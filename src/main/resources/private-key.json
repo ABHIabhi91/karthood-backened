@@ -1,0 +1,26 @@
+{
+
+  "type": "service_account",
+
+  "project_id": "karthood-app",
+
+  "private_key_id": "95af6316bfca713d73ed02a4ed6d2bc08dbdc5f4",
+
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCc+emoILeNMGS5\ntT89S9J6J6IywgafWDiiwdmy43bKbTkU+K2WwnuErllU1BE54WPo6EjnqepJG5Bk\nLZ0lZsYDfpVaaUVrneduVjavJaKG0CaIGpwqB5k8uOhrjwS0OWaATOuUuq5NDUbu\nP3x5R1npHTSNVd3aA6HQ+BjlGiYuxEFRB0Zn8/mWMwE4/5orOp8Y6+SRoGzES5H7\nrugCvJFe6jNwYQTpdmx0oOb9NG1Wdd5672xwSfQR5vHNUZKIsQwXwiIHrqfFpkzD\n0tcAJsrN3f6Kx14g5Kh1+hB9LLjGnLmp3go0ZahOQTaUEms5mj7nS8DZ59fUN619\njjnAhf5TAgMBAAECggEASoP/vMW7HBSq29UD7g7+HOqPflTIW/++8tPeiaKckz8B\n58icboJnq/YvhasdekJZ8QfDA+WOx6GEC2nzvPtqZ+JA96gdQha085WNY9sTqbdJ\nczZehz0QKtkDy3samorc826QLgvoDb+Nui784X1TWut4NNdb9s/ekpoTBz5AfdYB\nTGzqDhAb81SUKYf2McsVdIZkW1CgFBuwLcI1KaVlJHEAYxio6BZXcTAS40/x5yV+\nIy3ijEQor7VxiOXvuS+zreVFQgVd0ewLRZgnz8CqFO/oZbr/+ZBmoSNaa+4Lx7+k\n6oj8X+ieCG7PTr9cszaUeq0nm2Wu6zhMWNzU2gA0IQKBgQDQafVTpYohG3bMbhgD\n7h4ZcY+g+YAO01qJXf8WKUytvzrd7QGKFAzliJCRO9x+dV3Z2aiUifSy4Vq0lUzk\nzl3EyBKEnH5HN44rmph+gCEo33tg2if5kIbOtaV1l3utJuV5RPN+adopyKv+UlJ1\nTGALnOaCvgzBteELzbjsPTfc+QKBgQDA0VxRGoKltkIo7PibPm8YwZQuHouLcNYj\nrVGGmxcxJBpFAVko93xkN3XtjMl/d8kolahKtSbJYOISioZ1jGFLHcdBU7tIHwWr\nrBrAcqeHUoOehAspFL/fCbtrjeLACQRiKftbvmQUFL3jkam/THliVTpJHU9XWXo7\ntIfKCq2EqwKBgC1HN9MqXa3/p3mWWYVREBz6/Pc9/UI7TKoXT7ni0xPUPdfFC9aR\nsJOVbcL/vFGE8hTIIsXSiuTp7Kja3s++vcRoqw1AanbSbQKwHX0uHQYiN029V33y\nljcGY6H+fRILJ0OHZVcLbCgzvpoMDHoLU7pyJeo1m9PhzbigwxIf4qkRAoGAKCIr\nrfHvqaBTCwOwB1gqdaOtPSA8eWymFcz4gCT94cua8CwEq+M/b/ifQi+grTh4lUr5\nOXuVNCtHQwa0T/lFMwZit/U+sRdL7dynwNDcj+0b2j2vuQBJo5n5+bwRq1j1IZ2N\nZR4u5IMgtyJVi6zWQyJsPFWucwb7yzubW/F3BnsCgYBWD+inoBrBi5CPWgrxsUmD\nC7qokvis5t3brzCtd0K6oqqqFfTBVid6sSYGYtD7MxApghPThVBSbgMobsbk+P0S\nNsscf+A8CLFiETA5hG0YEscbkAWudYnl2I/pia9AWFRSpIUadzJSy1ZWlhzg93KU\nFBGye3tR9lN+Bc40WyNLvQ==\n-----END PRIVATE KEY-----\n",
+
+  "client_email": "firebase-adminsdk-fbsvc@karthood-app.iam.gserviceaccount.com",
+
+  "client_id": "107016104670607662140",
+
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+
+  "token_uri": "https://oauth2.googleapis.com/token",
+
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40karthood-app.iam.gserviceaccount.com",
+
+  "universe_domain": "googleapis.com"
+
+}
+

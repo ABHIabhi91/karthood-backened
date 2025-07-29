@@ -1,21 +1,41 @@
 package com.karthood.dto;
 
-import jakarta.persistence.*;
+
+
 import lombok.Data;
 
+import lombok.NoArgsConstructor;
+
+import lombok.AllArgsConstructor;
+
+
+
 @Data
-@Entity
-@Table(name = "users")
+
+@NoArgsConstructor
+
+@AllArgsConstructor
+
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+
+    public static final String COLLECTION_PATH = "users";
+
+
+
+    private String id; // Changed from Long to String (Firestore uses String IDs)
 
     private String name;
+
     private String email;
+
     private String password;
+
     private String phone;
+
     private String tower;
+
     private String flatNumber;
+
     private String role;
+
 }
