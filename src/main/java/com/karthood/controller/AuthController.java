@@ -98,27 +98,71 @@ public class AuthController {
 
 
 
+//    @PostMapping("/login")
+//
+//    public ResponseEntity<?> login(@RequestBody LoginRequest request) {
+//
+//        Optional<User> userOpt = userRepository.findByEmail(request.email());
+//
+//        if (userOpt.isEmpty() || !passwordEncoder.matches(request.password(), userOpt.get().getPassword())) {
+//
+//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
+//
+//        } else if (userOpt.get().getRole().equalsIgnoreCase("BUYER")) {
+//
+//            String token = jwtUtil.generateToken(request.email(), userOpt.get().getRole());
+//
+//            return ResponseEntity.ok(new AuthResponse(token, userOpt.get()));
+//
+//        } else
+//
+//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Only Buyer role should login");
+//
+//    }
+
     @PostMapping("/login")
-
     public ResponseEntity<?> login(@RequestBody LoginRequest request) {
-
         Optional<User> userOpt = userRepository.findByEmail(request.email());
 
         if (userOpt.isEmpty() || !passwordEncoder.matches(request.password(), userOpt.get().getPassword())) {
-
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
+        }
 
-        } else if (userOpt.get().getRole().equalsIgnoreCase("BUYER")) {
+        User user = userOpt.get();
+        String actualRole = user.getRole();            // e.g., "BUYER", "PROPERTY_SELLER"
+        String selectedUserType = request.userType(); // "Resident" or "Service Provider"
 
-            String token = jwtUtil.generateToken(request.email(), userOpt.get().getRole());
+        if (selectedUserType.equalsIgnoreCase("Resident")) {
+            // Only allow if actual role is 'BUYER'
+            if (!actualRole.equalsIgnoreCase("BUYER")) {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body("This account is registered as a service provider. Please select 'Service Provider' at login.");
+            }
+        } else if (selectedUserType.equalsIgnoreCase("Service Provider")) {
+            // Only allow if actual role is one of the service provider roles
+            if (!isServiceProvider(actualRole)) {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body("This account is registered as a resident. Please select 'Resident' at login.");
+            }
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body("Invalid user type selection.");
+        }
 
-            return ResponseEntity.ok(new AuthResponse(token, userOpt.get()));
+        // Generate JWT token including actual role info
+        String token = jwtUtil.generateToken(user.getEmail(), actualRole);
 
-        } else
-
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Only Buyer role should login");
-
+        return ResponseEntity.ok(new AuthResponse(token, user));
     }
+
+    // Helper method to identify service provider roles
+    private boolean isServiceProvider(String role) {
+        return role.equalsIgnoreCase("PROPERTY_SELLER") ||
+            role.equalsIgnoreCase("RESTAURANT_OWNER") ||
+            role.equalsIgnoreCase("BAKERY_OWNER") ||
+            role.equalsIgnoreCase("SALON_OWNER");
+    }
+
 
 }
 
